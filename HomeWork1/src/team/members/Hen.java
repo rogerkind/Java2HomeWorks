@@ -1,21 +1,29 @@
 package team.members;
 
+/**
+ * class Hen:
+ * Extends Animal implements Jumbable
+ * Uses AnimalOptions for getting constants
+ *
+ * @author Slava Bugakov
+ * @version 0.0.1 dated 31 Aug 2017
+ */
 public class Hen extends Animal implements Jumpable{
     private float jumpdist;
 
-    public Hen(String name) {
+    public Hen(String name){
         this.name = name;
-        this.rundist = TeamMembers.HEN.getRunlim();
-        jumpdist = TeamMembers.HEN.getJumplim();
+        this.rundist = AnimalOptions.HEN.getRunlim();
+        jumpdist = AnimalOptions.HEN.getJumplim();
     }
 
     @Override
-    public String voice() {
-        return TeamMembers.HEN.getVoice();
+    public String voice(){
+        return AnimalOptions.HEN.getVoice();
     }
 
     @Override
-    public boolean jump(float height) {
+    public boolean jump(float height){
         return jumpdist >= height;
     }
 }

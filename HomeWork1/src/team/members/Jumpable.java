@@ -1,14 +1,14 @@
 package team.members;
 
 /**
- * Write a description of interface Jumpable here.
+ * Making a "contract" for jumping species
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Slava Bugakov
+ * @version 0.0.1 dated 31 Aug 2017
  */
 
 public interface Jumpable{
 
-        boolean jump(float height);
+    boolean jump(float height);
 
 }
