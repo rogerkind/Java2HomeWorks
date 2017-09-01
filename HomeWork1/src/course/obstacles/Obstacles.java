@@ -1,18 +1,21 @@
 package course.obstacles;
+
+/**
+ * Enumerator - Obstacles
+ * contains All presented obstacles on track + names + sizes
+ *
+ * @author Slava Bugakov
+ * @version 0.0.1 dated 31 Aug 2017
+ */
+
 public enum Obstacles{
-    CROSS("Cross",50),
-    WALL("Wall",5),
-    SWIM("Swim",100);
+    CROSS("Road", 50), WALL("Wall", 2), SWIM("Lake", 80);
     private String name;
     private int size;
 
-    Obstacles(String name,int size){
+    Obstacles(String name, int size){
         this.name = name;
         this.size = size;
-    }
-
-    public String getName(){
-        return this.name;
     }
 
     public int getSize(){
@@ -21,6 +24,8 @@ public enum Obstacles{
 
     @Override
     public String toString(){
-        return this.getClass().getName()+" "+name+" "+size+"m";
+        return " " + name + " " + size + " m";
     }
 }
+
+
