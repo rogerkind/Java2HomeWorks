@@ -11,7 +11,7 @@ import java.util.*;
  * Следует учесть, что под одной фамилией может быть несколько телефонов (в случае однофамильцев),
  * тогда при запросе такой фамилии должны выводиться все телефоны.
  * @author Slava Bugakov
- * @version 0.0.1 dated Sep 07, 2017
+ * @version 0.0.2 dated 08 Sep 2017
  */
 
 public class Java2HWLesson3{
@@ -33,6 +33,7 @@ public class Java2HWLesson3{
         phBook.get("Sullivan");
         phBook.get("Doe");
         phBook.get("Johnson");
+        phBook.get("Petrov");
 
     }
 
@@ -63,14 +64,21 @@ class PhoneBook{
 
     public void get(String lastname){
         List<String> numbers = new ArrayList<>();
+
         Set<Map.Entry<String, String>> set = book.entrySet();
-        for(Map.Entry<String, String> o : set){
+        for(Map.Entry<String, String> o : set)
             if(o.getValue() == lastname) numbers.add(o.getKey());
+
+        if(numbers.size()<1){
+            System.out.println("Phone book does not contain "+lastname);
+            System.out.println();
         }
-        System.out.println("Searh results for " + lastname + ":");
-        for(String num : numbers)
-            System.out.println(num);
-        System.out.println();
+        else{
+            System.out.println("Searh results for " + lastname + ":");
+            for(String num : numbers)
+                System.out.println(num);
+            System.out.println();
+        }
     }
 
 }
