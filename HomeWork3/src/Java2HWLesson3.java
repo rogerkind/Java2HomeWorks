@@ -4,7 +4,7 @@ import java.util.*;
  * 1. Создать массив с набором слов (10-20 слов, должны встречаться повторяющиеся).
  * Найти и вывести список уникальных слов, из которых состоит массив (дубликаты не считаем).
  * Посчитать сколько раз встречается каждое слово.
- *
+ * <p>
  * 2. Написать простой класс ТелефонныйСправочник, который хранит в себе список фамилий и телефонных номеров.
  * В этот телефонный справочник с помощью метода add() можно добавлять записи.
  * С помощью метода get() искать номер телефона по фамилии.
@@ -14,63 +14,61 @@ import java.util.*;
 
 public class Java2HWLesson3{
 
-
     public static void main(String[] args){
-        String[] words = {"brown","red","black","yellow","red","green","yellow","red","green","black","red","green",};
-        System.out.println(countWords(words));
+        String[] words = {"brown", "red", "black", "yellow", "red", "green", "yellow", "red", "green", "black", "red", "green",};
         PhoneBook phBook = new PhoneBook();
-        phBook.add("Doe",8800200300l);
-        phBook.add("Doe",8800200100l);
-        phBook.add("Doe",8800200200l);
-        phBook.add("Johnson",8500500300l);
-        phBook.add("Donovan",8600100300l);
-        phBook.add("Sullivan",8700200300l);
-        phBook.add("Sullivan",8800800800l);
 
+        System.out.println(countWords(words));
+        System.out.println();
+        phBook.add("Doe", "8-800-200-300");
+        phBook.add("Doe", "8-800-200-100");
+        phBook.add("Doe", "8-800-200-200");
+        phBook.add("Johnson", "8-500-500-300");
+        phBook.add("Donovan", "8-600-100-300");
+        phBook.add("Sullivan", "8-700-200-300");
+        phBook.add("Sullivan", "8-800-800-800");
 
         phBook.get("Sullivan");
         phBook.get("Doe");
         phBook.get("Johnson");
 
-
     }
 
     static Map<String, Integer> countWords(String[] words){
-        Map<String,Integer> count = new TreeMap<>();
-        boolean founded=false;
+        Map<String, Integer> count = new TreeMap<>();
+        boolean founded = false;
         Set<Map.Entry<String, Integer>> set = count.entrySet();
-        for(int i = 0;i<words.length;i++){
+        for(int i = 0; i < words.length; i++){
             for(Map.Entry<String, Integer> o : set){
-                if(o.getKey()==words[i]){
-                    o.setValue(o.getValue()+1);
-                    founded=true;
+                if(o.getKey() == words[i]){
+                    o.setValue(o.getValue() + 1);
+                    founded = true;
                 }
             }
-            if(!founded) count.put(words[i],1);
-
-            founded =false;
+            if(!founded) count.put(words[i], 1);
+            founded = false;
         }
         return count;
     }
 }
 
 class PhoneBook{
-    private Map<Long,String> book = new HashMap<>();
+    private Map<String, String> book = new HashMap<>();
 
-
-    public void add(String lastname,long number){
-      book.put(number,lastname);
+    public void add(String lastname, String number){
+        book.put(number, lastname);
     }
 
     public void get(String lastname){
-        List<Long> numbers = new ArrayList<>();
-        Set<Map.Entry<Long,String>> set = book.entrySet();
-        for(Map.Entry<Long,String> o:set){
-            if (o.getValue()==lastname) numbers.add(o.getKey());
+        List<String> numbers = new ArrayList<>();
+        Set<Map.Entry<String, String>> set = book.entrySet();
+        for(Map.Entry<String, String> o : set){
+            if(o.getValue() == lastname) numbers.add(o.getKey());
         }
-        System.out.println("Searh results for "+lastname+":");
-        for (long l:numbers)
-            System.out.println(l);
+        System.out.println("Searh results for " + lastname + ":");
+        for(String num : numbers)
+            System.out.println(num);
+        System.out.println();
     }
 
 }
