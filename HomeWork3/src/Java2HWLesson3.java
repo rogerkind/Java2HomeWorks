@@ -74,7 +74,7 @@ class PhoneBook{
             System.out.println();
         }
         else{
-            System.out.println("Searh results for " + lastname + ":");
+            System.out.println("Search results for " + lastname + ":");
             for(String num : numbers)
                 System.out.println(num);
             System.out.println();
