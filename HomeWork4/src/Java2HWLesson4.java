@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * При «отсылке» сообщение перекидывается из нижнего поля в центральное.
  *
  * @author Slava Bugakov
- * @version 0.0.2 dated 08 Sep 2017
+ * @version 0.0.3 dated 11 Sep 2017
  */
 
 public class Java2HWLesson4{
@@ -42,6 +42,7 @@ class ChatWindow extends JFrame implements ActionListener, WindowOptions{
         dialogBox = new JTextArea();
         dialogBox.setEditable(false);
         dialogBox.setLineWrap(true);
+        dialogBox.setWrapStyleWord(true);
         scrollbar = new JScrollPane(dialogBox);
 
         controlsPanel = new JPanel();
