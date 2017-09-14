@@ -106,7 +106,6 @@ class ArrayComputingCompare implements Runnable{
             }catch(InterruptedException e){
             }
         }
-
     }
 
     public void runDirect(){
@@ -116,7 +115,6 @@ class ArrayComputingCompare implements Runnable{
             arr[i] = (float) (arr[i] * Math.sin(0.2f + i / 5) * Math.cos(0.2f + i / 5) * Math.cos(0.4f + i / 2));
         System.out.println("Direct run for array size (" + arr.length + ") took: "
                 + (System.currentTimeMillis() - a) + " ms");
-
     }
 
     public void runSplitAndTreads(){
@@ -128,7 +126,6 @@ class ArrayComputingCompare implements Runnable{
         mergeArray();
         System.out.println("Run for array size (" + (arr.length) + ") divided by " + split + " total took: "
                 + (System.currentTimeMillis() - a) + " ms");
-
     }
 
     @Override
@@ -143,7 +140,6 @@ class ArrayComputingCompare implements Runnable{
 
         System.out.println("Run for " + (arrnum + 1) + " part of array size (" + (sparr[arrnum].length)
                 + ") took: " + (System.currentTimeMillis() - a) + " ms");
-
     }
 
 }
