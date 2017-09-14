@@ -126,8 +126,8 @@ class ArrayComputingCompare implements Runnable{
         startTreads();
         killTreads();
         mergeArray();
-        System.out.println("Run for array size (" + (arr.length) + ") divided by " + split +
-                " total took: " + (System.currentTimeMillis() - a) + " ms");
+        System.out.println("Run for array size (" + (arr.length) + ") divided by " + split + " total took: "
+                + (System.currentTimeMillis() - a) + " ms");
 
     }
 
@@ -137,7 +137,9 @@ class ArrayComputingCompare implements Runnable{
         int arrnum = Integer.parseInt(Thread.currentThread().getName());
 
         for(int i = 0; i < sparr[arrnum].length; i++)
-            sparr[arrnum][i] = (float) (sparr[arrnum][i] * Math.sin(0.2f + (i + (arrnum * split_size)) / 5) * Math.cos(0.2f + (i + (arrnum * split_size)) / 5) * Math.cos(0.4f + (i + (arrnum * split_size)) / 2));
+            sparr[arrnum][i] = (float) (sparr[arrnum][i] * Math.sin(0.2f + (i + (arrnum * split_size)) / 5)
+                    * Math.cos(0.2f + (i + (arrnum * split_size)) / 5)
+                    * Math.cos(0.4f + (i + (arrnum * split_size)) / 2));
 
         System.out.println("Run for " + (arrnum + 1) + " part of array size (" + (sparr[arrnum].length)
                 + ") took: " + (System.currentTimeMillis() - a) + " ms");
